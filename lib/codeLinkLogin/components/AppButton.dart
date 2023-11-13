@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_play_ground/utils/Constants.dart';
 class AppButton extends StatefulWidget {
   TextEditingController email;
+  final Function onClick;
 
-  AppButton({super.key, required this.email});
+  AppButton({super.key, required this.email , required this.onClick});
 
   @override
   State<AppButton> createState() => _AppButtonState(email);
@@ -27,7 +28,6 @@ class _AppButtonState extends State<AppButton> {
         child: ElevatedButton(
           onPressed: () {
             _toggleLoading();
-            _showSnackbar();
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: const Color.fromARGB(255, 217, 198, 164),
@@ -64,12 +64,9 @@ class _AppButtonState extends State<AppButton> {
       setState(() {
         _isLoading = !_isLoading;
       });
+      widget.onClick();
     });
   }
 
-  void _showSnackbar() {
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      content: Text(email.text),
-    ));
-  }
+
 }
