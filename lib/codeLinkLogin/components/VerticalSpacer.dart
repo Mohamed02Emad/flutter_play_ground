@@ -15,3 +15,19 @@ class VerticalSpacer extends StatelessWidget {
     );
   }
 }
+
+class HorizontalSpacer extends StatelessWidget {
+  var _space = 20.0;
+
+  HorizontalSpacer({super.key, double space = 20}){
+    _space = space;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: _space,
+      height: 0,
+    );
+  }
+}

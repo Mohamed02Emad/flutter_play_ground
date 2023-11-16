@@ -20,8 +20,8 @@ class SvgImage extends StatelessWidget {
         child: SvgPicture.asset(
           'assets/images/$_svgName.svg',
           semanticsLabel: 'Login Image',
-          width: 200,
-          height: 200,
+          width: _width,
+          height: _height,
         ),
       ),
     );
